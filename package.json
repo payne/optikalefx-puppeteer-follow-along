@@ -1,0 +1,11 @@
+{
+  "name": "optikalefx-puppeteer-follow-along",
+  "version": "0.0.1",
+  "description": "Following along with https://www.youtube.com/watch?v=IvaJ5n5xFqU and other play",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
