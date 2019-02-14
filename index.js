@@ -16,7 +16,9 @@ const fs = require('fs-extra');
       let nextHref = '';
       for (const article of articles) {
         const href = await article.$eval('a', a => a.href);
+        const title = await article.$eval('.entry-title a', a => a.textContent);
         console.log(href);
+        console.log(`\t${title}`);
         await fs.appendFile(outputFileName, `${href}\n`);
         if (href.includes('page')) {
           nextHref = href;
