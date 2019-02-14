@@ -20,6 +20,7 @@ const puppeteer = require('puppeteer');
         }
       }
     }
+    browser.close();
   } catch (e) {
     console.log('our error', e);
   }
