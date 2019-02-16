@@ -11,6 +11,7 @@ const fs = require('fs-extra');
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     const youTubeInfo = [];
+    const bad = [];
     for (let videoNumber = 0; videoNumber < videoPageUrls.length; videoNumber++) {
       await page.goto(videoPageUrls[videoNumber]);
       try {
@@ -21,6 +22,8 @@ const fs = require('fs-extra');
         youTubeInfo.push({ page: videoPageUrls[videoNumber], youTubeUrl });
         await fs.writeFile('youtube-output.json', JSON.stringify(youTubeInfo));
       } catch (eForUrl) {
+        bad.push(videoPageUrls[videoNumber]);
+        await fs.writeFile('bad.json', JSON.stringify(bad));
         console.log(`When visiting ${videoPageUrls[videoNumber]} there was a problem! `, eForUrl);
       }
     }
