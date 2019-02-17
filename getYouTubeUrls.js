@@ -4,7 +4,7 @@ const fs = require('fs-extra');
 
 (async function main() {
   try {
-    let rawdata = fs.readFileSync('output_formatted.json');
+    let rawdata = fs.readFileSync('output_formatted_part2.json');
     let to = JSON.parse(rawdata);
     let videoPageUrls = to.map(v => v.href);
 
